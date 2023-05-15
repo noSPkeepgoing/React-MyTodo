@@ -1,13 +1,21 @@
+import { useState } from 'react';
 import './App.css';
 import TodoFooter from './components/TodoFooter';
 import TodoHeader from './components/TodoHeader';
 import TodoList from './components/TodoList';
 
 function App() {
-  const dummy = ['item1', 'item2', 'item3'];
+  const [items, setItems] = useState([]);
+
+  const handleAdd = (item) => {
+    if (item.trim() != '') {
+      setItems([...items, { item: item, id: Date.now() }]);
+    }
+  };
   return (
     <div>
-      <TodoList items={dummy} />
+      <TodoList items={items} />
+      <TodoFooter handleAdd={handleAdd} />
     </div>
   );
 }

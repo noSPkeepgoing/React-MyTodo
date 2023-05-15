@@ -1,11 +1,9 @@
 import React from 'react';
 
-export default function TodoItem({ items }) {
+export default function TodoItem({ item }) {
   return (
-    <div>
-      {items.map((item) => {
-        return <li>{item}</li>;
-      })}
-    </div>
+    <li>
+      <a>{item}</a>
+    </li>
   );
 }

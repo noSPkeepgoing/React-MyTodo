@@ -4,7 +4,9 @@ import TodoItem from './TodoItem';
 export default function TodoList({ items }) {
   return (
     <div>
-      <TodoItem items={items} />
+      {items.map((item) => (
+        <TodoItem item={item.item} key={item.id} />
+      ))}
     </div>
   );
 }
