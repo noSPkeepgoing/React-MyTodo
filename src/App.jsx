@@ -1,20 +1,28 @@
 import { useState } from 'react';
 import './App.css';
 import TodoFooter from './components/TodoFooter';
-import TodoHeader from './components/TodoHeader';
 import TodoList from './components/TodoList';
 
 function App() {
   const [items, setItems] = useState([]);
 
-  const handleAdd = (item) => {
-    if (item.trim() != '') {
-      setItems([...items, { item: item, id: Date.now() }]);
+  const handleAdd = (text) => {
+    if (text.trim() !== '') {
+      setItems([...items, { item: text, id: Date.now(), checked: false }]);
     }
   };
+
+  const handleCheck = (id, isChecked) => {
+    setItems(
+      items.map((item) =>
+        item.id == id ? { ...item, checked: isChecked } : item
+      )
+    );
+  };
+
   return (
     <div>
-      <TodoList items={items} />
+      <TodoList items={items} handleCheck={handleCheck} />
       <TodoFooter handleAdd={handleAdd} />
     </div>
   );

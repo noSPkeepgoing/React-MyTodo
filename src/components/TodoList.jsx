@@ -1,11 +1,16 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
-export default function TodoList({ items }) {
+export default function TodoList({ items, handleCheck }) {
   return (
     <div>
-      {items.map((item) => (
-        <TodoItem item={item.item} key={item.id} />
+      {items.map((item, index) => (
+        <TodoItem
+          item={item.item}
+          key={index}
+          id={item.id}
+          handleCheck={handleCheck}
+        />
       ))}
     </div>
   );

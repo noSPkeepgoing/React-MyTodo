@@ -6,6 +6,7 @@ export default function TodoFooter({ handleAdd }) {
     handleAdd(e.target[0].value);
     e.target[0].value = '';
   };
+
   return (
     <div>
       <form onSubmit={onSubmit}>
