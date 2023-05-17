@@ -10,6 +10,7 @@ export default function TodoList({ items, handleCheck, handleDelete }) {
             item={item.item}
             key={index}
             id={item.id}
+            checked={item.isChecked}
             handleCheck={handleCheck}
             handleDelete={handleDelete}
           />
