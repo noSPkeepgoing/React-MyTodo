@@ -1,13 +1,13 @@
-import { useReducer } from 'react';
+import { useReducer, useState } from 'react';
 import './App.css';
 import TodoFooter from './components/TodoFooter';
+import TodoHeader from './components/TodoHeader';
 import TodoList from './components/TodoList';
 import itemsReducer from './reducer/items-reducer';
 
 function App() {
-  const [items, dispatch] = useReducer(itemsReducer, [
-    { item: 'hi there :)', id: 123, isChecked: false },
-  ]);
+  const [items, dispatch] = useReducer(itemsReducer, []);
+  const [show, setShow] = useState('all');
 
   const handleAdd = (text) => {
     if (text.trim() !== '') {
@@ -23,10 +23,21 @@ function App() {
     dispatch({ type: 'checked', id, isChecked });
   };
 
+  const handleFilter = (filter) => {
+    setShow(filter);
+  };
+
   return (
     <div>
+      <TodoHeader handleFilter={handleFilter} />
       <TodoList
-        items={items}
+        items={
+          show === 'all'
+            ? items
+            : show === 'todo'
+            ? items.filter((i) => !i.isChecked)
+            : items.filter((i) => i.isChecked)
+        }
         handleCheck={handleCheck}
         handleDelete={handleDelete}
       />
