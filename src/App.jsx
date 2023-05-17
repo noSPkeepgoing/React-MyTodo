@@ -12,6 +12,10 @@ function App() {
     }
   };
 
+  const handleDelete = (id) => {
+    setItems(items.filter((item) => item.id != id));
+  };
+
   const handleCheck = (id, isChecked) => {
     setItems(
       items.map((item) =>
@@ -22,7 +26,11 @@ function App() {
 
   return (
     <div>
-      <TodoList items={items} handleCheck={handleCheck} />
+      <TodoList
+        items={items}
+        handleCheck={handleCheck}
+        handleDelete={handleDelete}
+      />
       <TodoFooter handleAdd={handleAdd} />
     </div>
   );
