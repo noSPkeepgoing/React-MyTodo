@@ -23,12 +23,17 @@ function App() {
     dispatch({ type: 'checked', id, isChecked });
   };
 
-  const handleFilter = (filter) => {
+  const handleFilter = (target, filter) => {
     setShow(filter);
+    target.classList.add('active');
+
+    [...target.parentNode.childNodes]
+      .filter((node) => node.name !== filter)
+      .map((node) => node.classList.remove('active'));
   };
 
   return (
-    <div>
+    <div className='todo'>
       <TodoHeader handleFilter={handleFilter} />
       <TodoList
         items={

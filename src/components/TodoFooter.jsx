@@ -1,4 +1,5 @@
 import React from 'react';
+import './css/TodoFooter.css';
 
 export default function TodoFooter({ handleAdd }) {
   const onSubmit = (e) => {
@@ -8,11 +9,9 @@ export default function TodoFooter({ handleAdd }) {
   };
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <input type='text'></input>
-        <input type='submit' value='ADD'></input>
-      </form>
-    </div>
+    <form className='form' onSubmit={onSubmit}>
+      <input type='text' className='form_text'></input>
+      <input type='submit' value='ADD' className='form_button'></input>
+    </form>
   );
 }

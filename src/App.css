@@ -1,0 +1,16 @@
+.todo {
+  margin: auto;
+  margin-top: 5em;
+  padding: 1rem;
+  display: grid;
+  height: 30em;
+  width: 30em;
+  text-align: center;
+  grid-template-rows: 1fr 8fr 1fr;
+  background-color: #e09371;
+  /* border: solid 0.1em #010101; */
+  border-radius: 20px;
+  box-shadow: 6px 5px 9px 0px rgba(80, 80, 80, 0.5);
+  -webkit-box-shadow: 6px 5px 9px 0px rgba(80, 80, 80, 0.5);
+  -moz-box-shadow: 6px 5px 9px 0px rgba(80, 80, 80, 0.5);
+}
