@@ -10,7 +10,6 @@
   border: none;
   font-size: 16px;
   font-weight: bolder;
-  text-decoration: underline;
   color: #fcf0d8;
 }
 
@@ -21,4 +20,5 @@
 
 .active {
   color: #bb4029;
+  text-decoration: underline;
 }

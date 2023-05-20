@@ -1,3 +1,31 @@
+/* 체크박스 커스튬 */
+input[type='checkbox'] {
+  display: none;
+}
+
+input[type='checkbox'] + label {
+  cursor: pointer;
+}
+
+input[type='checkbox'] + label:before {
+  content: '';
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  border: 2px solid #bb4029;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+input[type='checkbox']:checked + label:before {
+  content: '';
+  background-color: #bb4029;
+  border-color: #bb4029;
+  content: '✔︎';
+  color: #f6f7f7;
+  background-position: 50%;
+}
+
 .todo_list {
   background-color: #f6f7f7;
   /* border: solid 0.1em #010101; */
@@ -28,7 +56,13 @@
   margin-left: 1rem;
 }
 
+.todo_item_done {
+  text-decoration: line-through;
+  color: #616161d0;
+}
+
 .todo_item_button {
+  display: none;
   /* border: solid 0.1em #010101; */
   border: none;
   border-radius: 50%;
@@ -39,6 +73,10 @@
   height: 20px;
   width: 20px;
   padding: 0;
+}
+
+.todo_item:hover > button {
+  display: block;
 }
 
 .todo_item_button:hover {

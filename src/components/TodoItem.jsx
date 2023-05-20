@@ -18,17 +18,12 @@ export default function TodoItem({
 
   return (
     <li className='todo_item'>
-      <label className='todo_item_input'>
-        <input
-          id={id}
-          type='checkbox'
-          checked={checked}
-          onChange={onCheck}
-        ></input>
-        <span>{item}</span>
+      <input id={id} type='checkbox' checked={checked} onChange={onCheck} />
+      <label className='todo_item_input' for={id}>
+        <span className={checked ? 'todo_item_done' : ''}>{item}</span>
       </label>
       <button className='todo_item_button' onClick={onDelete}>
-        X
+        ✘
       </button>
     </li>
   );
